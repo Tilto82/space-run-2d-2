@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     public GameObject player;
     public Transform playerPosition;
 
-    private float _timeLeft = 1f;
+    private float _timeLeft = 0.5f;
     public void Restart()
     {
         isRestarted = true;

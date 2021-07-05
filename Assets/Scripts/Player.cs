@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject player;
 
     public float playerSpeed = 5;
+    public float move;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
 
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
 
     private UI ui;
     public GameObject otherGameObject;
+    private Shooting shooting;
+    private ShootingTwo shootingTwo;
 
     public int coinCount;
     public AudioSource coinPickUp;
@@ -30,19 +33,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         ui = otherGameObject.GetComponent<UI>();
-
-        if (ui.canStart)
-        {
-            float directionX = Input.GetAxisRaw("Horizontal");
-            playerDirection = new Vector2(directionX, 0).normalized;
-        }  
     }
 
     public void FixedUpdate()
     {
         if (ui.canStart)
         {
-            rb.velocity = new Vector2(playerDirection.x * playerSpeed, 0);
+            transform.Translate(transform.right * move * playerSpeed * Time.fixedDeltaTime);
         }
     }
 
