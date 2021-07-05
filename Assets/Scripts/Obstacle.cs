@@ -9,9 +9,7 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
-        obstacleSpawn = GetComponent<ObstacleSpawn>();
         obstacleSpawn = otherGameObject.GetComponent<ObstacleSpawn>();
     }
- 
-    
+
 }

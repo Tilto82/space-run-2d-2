@@ -23,17 +23,18 @@ public class ObstacleSpawn : MonoBehaviour
     {
         ui = otherGameObject.GetComponent<UI>();
 
+
         if (Time.time > spawnTime)
         {
             if (GameObject.FindGameObjectWithTag("Player") != null)
             {
-                if (ui.canStart == true)
+                if (ui.canStart)
                 {
                     Spawn();
                     spawnTime = Time.time + timeBetweenSpawn;
                 }
             }
-        }  
+        }
     }
 
     void Spawn()

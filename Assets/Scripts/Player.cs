@@ -57,8 +57,7 @@ public class Player : MonoBehaviour
             
             gameOver.SetActive(true);
 
-            scoreText.SetActive(false);
-            shootButton.SetActive(false);
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("Coin"))

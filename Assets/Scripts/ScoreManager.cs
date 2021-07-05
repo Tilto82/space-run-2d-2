@@ -13,13 +13,14 @@ public class ScoreManager : MonoBehaviour
     private UI ui;
     public GameObject otherGameObject;
     private GameOver gameOver;
+    public GameObject secondOtherGameObject;
 
     void Update()
     {
 
 
         ui = otherGameObject.GetComponent<UI>();
-        gameOver = otherGameObject.GetComponent<GameOver>();
+        gameOver = secondOtherGameObject.GetComponent<GameOver>();
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
@@ -32,13 +33,13 @@ public class ScoreManager : MonoBehaviour
 
         if (gameOver.isRestarted)
         {
-            Debug.Log("Da.");
             if (score > maxScore)
             {
                 maxScore = score;
-                maxScoreText.text = ((int)maxScore).ToString();
+                maxScoreText.text = ((int)score).ToString();
             }
             score = 0;
+
         }
     }
 }

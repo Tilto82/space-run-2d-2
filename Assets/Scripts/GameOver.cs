@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     public GameObject player;
     public Transform playerPosition;
 
+    private float _timeLeft = 1f;
     public void Restart()
     {
         isRestarted = true;
@@ -25,6 +26,11 @@ public class GameOver : MonoBehaviour
     {
         if (isRestarted)
         {
+            _timeLeft -= Time.deltaTime;
+            if (_timeLeft < 0)
+            {
+                isRestarted = false;
+            }
             player.SetActive(true);
             player.transform.position = playerPosition.position;
         }
